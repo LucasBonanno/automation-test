@@ -1,6 +1,8 @@
 name: Java CI
 
-on: repository_dispatch
+on: 
+  repository_dispatch:
+    types: [build_application]
 
 jobs:
   build:
