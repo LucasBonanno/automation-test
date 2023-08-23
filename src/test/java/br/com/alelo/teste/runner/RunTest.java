@@ -11,7 +11,7 @@ import io.cucumber.junit.CucumberOptions.SnippetType;
 		features = "./src/test/resources/features/", 
 		glue = "br.com.alelo.teste",
 		tags = "@APIController",
-		plugin = { "pretty", "json:evidences/report.json" }, 
+		plugin = { "pretty", "html:evidences/report.html", "html:evidences/report.xml", "json:evidences/report.json" },
 		monochrome = false, 
 		snippets = SnippetType.CAMELCASE, 
 		dryRun = false
