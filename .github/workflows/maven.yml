@@ -4,6 +4,9 @@ on:
     branches: [ main ]
   pull_request:
     branches: [ main ]
+  repository_dispatch:
+    types: [ build_application ]
+
 jobs:
   build:
     runs-on: windows-latest
