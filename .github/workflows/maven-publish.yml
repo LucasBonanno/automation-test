@@ -22,3 +22,23 @@ jobs:
         with:
           name: test-results
           path: evidences/report.json
+  check-results:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download Artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: test-results
+      - name: Display Test Results
+        run: |
+          # Get the test results
+          echo "Test Results: $(cat test-results.json)"
+      - name: Comment Results
+        uses: peter-evans/create-or-update-comment@v3
+        with:
+          body: '*Test Results:*
+
+          ${{ steps.check-results.outputs.test-results }}
+
+          *Warning:* The tests in project B failed'
